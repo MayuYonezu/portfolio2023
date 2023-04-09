@@ -1,0 +1,661 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+    list-style: none;
+    text-decoration: none;
+}
+
+body {
+    background-color: #F7F2EF;
+}
+
+.flex {display: flex;}
+.aic {align-items: center;}
+.jcb {justify-content: space-between;}
+/*------------------------------------
+ヘッダー a hover:下線アンダーライン ↓
+------------------------------------*/
+header ul li a {
+  position: relative;
+  display: inline-block;
+  text-decoration: none;
+  font-family: serif;
+  color: #B78A8C;
+}
+header ul li a::after {
+  position: absolute;
+  bottom: 20px;
+  left: 0;
+  content: '';
+  width: 100%;
+  height: 3px;
+  background: #F4D9CE;
+  transform: scale(0, 1);
+  transform-origin: right top;
+  transition: transform .3s;
+}
+header ul li a:hover {
+  color: #A7555D;
+}
+header ul li a:hover::after {
+  transform-origin: left top;
+  transform: scale(1, 1);
+}
+/*------------------------------------
+ヘッダー pcハンバーガーメニュー ↓
+------------------------------------*/
+header {
+    width: 100vw;
+    height: 70px;
+    line-height: 70px;
+    background-color: #FFFDFD;
+    box-shadow: 0px 1px 3px 0px #F4D9CE;
+    display: flex;
+    position: fixed;
+    justify-content: space-between;
+    text-align: center;
+    z-index: 1;
+}
+
+.logo {
+    width: 100vw;
+    height: 70px;
+    text-align: center;
+}
+
+header h1 {
+    padding-left: 50px;
+    font-size: 30px;
+    color: #A7555D;
+    font-family: serif;
+    padding:0;
+}
+
+/*------------------------------------
+ヘッダー spハンバーガーメニュー ↓
+------------------------------------*/
+header .sp_nav {
+  text-align: center;
+}
+.sidemenu {
+  height: 100vh;
+  padding-top: 100px;
+  position: fixed;
+  right: -40%; /*メニュー幅*/
+  transition: all 0.6s;
+  top: 0;
+  width: 40%; /*メニュー幅*/
+  z-index: 2;
+  background-color: #FFFDFD;
+}
+.sidemenu nav ul li {
+  padding: 0px;
+}
+.hamburger {
+  cursor: pointer;
+  height: 60px;
+  position: absolute;
+  right: 20px;
+  top: 5px;
+  width: 60px;
+  z-index: 3;
+}
+.hamburger span {
+  background-color: #B78A8C;
+  height: 4px;
+  left: 15px;
+  position: absolute;
+  transition: all 0.6s;
+  width: 30px;
+}
+.hamburger_linetop {
+  top: 20px;
+}
+.hamburger_linecenter {
+  top: 29px;
+}
+.hamburger_linebottom {
+  top: 38px;
+}
+/*------------------------------------
+メニュークリックした後 ↓
+------------------------------------*/
+.nav_open .sidemenu {
+  right: 0;
+}
+.nav_open .hamburger_linetop {
+  top: 26px;
+  transform: rotate(45deg);
+}
+.nav_open .hamburger_linecenter {
+  left: 50%;
+  width: 0;
+}
+.nav_open .hamburger_linebottom {
+  top: 26px;
+  transform: rotate(-45deg);
+}
+.nav_open .overlay {
+  opacity: 0.8;
+  visibility: visible;
+}
+/*------------------------------------
+メニュークリック後メニュー外の背景 ↓
+------------------------------------*/
+.overlay {
+  background-color: #F4D9CE;
+  cursor: pointer;
+  height: 100vh;
+  left: 0;
+  opacity: 0;
+  position: fixed;
+  top: 0;
+  transition: all 0.6s;
+  visibility: hidden;
+  width: 100vw;
+  z-index: 1;
+}
+/*------------------------------------
+@media screen 1000px~999px ↓
+------------------------------------*/
+@media screen and (max-width: 1000px) {
+  .sp_no {
+    display: none;
+  }
+  .sidemenu {
+    right: -50%; /*メニュー幅*/
+    width: 50%; /*メニュー幅*/
+  }
+}
+@media screen and (min-width: 999px) {
+  .pc_no {
+    display: none;
+  }
+}
+
+@media(max-width: 768px) {
+
+    header p {
+        width: 100vw;
+        text-align: center;
+        padding: 0;
+    }
+
+    header h1 {
+        font-size: 20px;
+    }
+
+    .hamburger {
+        right: 5px;
+        top: 5px;
+      }
+
+}
+
+@media(max-width: 480px) {
+    header p {
+        font-size: 24px;
+    }
+}
+
+.firstView {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #F7F2EF;
+    opacity: 1;
+    background-image: linear-gradient(-50deg, #F7F2EF, #F7F2EF 50%, #f8f4f2 50%, #f8f4f2);
+    background-size: 100px 100px;
+}
+
+.firstView img {
+    width: 70vw;
+    height: auto;
+}
+
+
+#about {
+    text-align: center;
+    padding: 100px 15%;
+    background-color: #FFFDFD;
+    opacity: 1;
+    background-image:  linear-gradient(135deg, #ffffff 25%, transparent 25%), linear-gradient(225deg, #ffffff 25%, transparent 25%), linear-gradient(45deg, #ffffff 25%, transparent 25%), linear-gradient(315deg, #ffffff 25%, #FFFDFD 25%);
+    background-position:  100px 0, 100px 0, 0 0, 0 0;
+    background-size: 100px 100px;
+    background-repeat: repeat;
+}
+
+h1 {
+    padding: 0 0 50px;
+    color: #B78A8C;
+    font-size: 36px;
+    font-family: serif;
+}
+
+.about-detail {
+    /* 子要素を水平方向の中央に配置する */
+    display: flex;
+    justify-content: center;
+}
+
+.about-detail img{
+    height: 250px;
+    width: auto;
+    transition: 0.3s;
+}
+
+.about-textBox {
+    background-color: #FFFDFD;
+    height: 250px;
+    width: auto;
+    display:table;
+    padding-left: 50px;
+}
+
+.about-text {
+    font-family: sans-serif;
+    text-align: left;
+    height: 250px;
+    width: auto;
+    display:table-cell;
+    vertical-align:middle;
+}
+
+#about p {
+    color: #B78A8C;
+    font-size: 14px;
+}
+
+.text-h2 {
+    color: #B78A8C;
+    font-size: 40px;
+    font-weight: bold;
+}
+
+.text-h3 {
+    color: #B78A8C;
+    font-size: 20px;
+}
+
+.img_sm {
+    display: none;
+}
+
+@media(max-width: 1066px) {
+    .about-detail {
+        /* 子要素を水平方向の中央に配置する */
+        display: block;
+    }
+
+    .about-textBox {
+        padding: 0;
+    }
+
+    .about-text {
+        text-align: center;
+    }
+
+    .timeline {
+        display: none;
+
+    }
+}
+
+@media(max-width: 768px) {
+    #about p {
+        font-size: 10px;
+    }
+    
+    .text-h2 {
+        font-size: 24px;
+    }
+    
+    .text-h3 {
+        font-size: 16px;
+    }
+
+    .about-textBox {
+        height: auto;
+    }
+
+    .about-text {
+        vertical-align:top;
+        height: auto;
+    }
+
+    .img_pc {
+        display: none;
+    }
+
+    .img_sm {
+        display: inline;
+    }
+}
+
+th {
+    font-size: 40px;
+    font-family: serif;
+}
+
+table {
+    background-color: #FFFDFD;
+    color: #B78A8C;
+    padding: 50px 20px;
+    margin: 100px auto;
+    border-radius: 3px;
+    border: solid;
+    border-color: #F4D9CE;
+    text-align: left;
+    display: flex;
+    justify-content: center;
+}
+
+.table-en {
+    background-color: #F4D9CE;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    margin: 20px 40px;
+}
+
+.month {
+    font-family: sans-serif;
+    font-weight: bold;
+    font-size: 20px;
+    padding-right: 40px;
+}
+
+.month span {
+    font-family: serif;
+    font-size: 40px;
+}
+
+.detail {
+    font-family: sans-serif;
+    font-weight: bold;
+    font-size: 16px;
+}
+
+#field {
+    text-align: center;
+    padding: 100px 0;
+    background-color: #F4D9CE;
+    opacity: 1;
+    background-image: linear-gradient(to right, #f5dcd2, #f5dcd2 80px, #F4D9CE 80px, #F4D9CE );
+    background-size: 160px 100%;
+}
+
+video {
+    width: 60vw;
+    height: auto;
+}
+
+#field h2 {
+    color: #B78A8C;
+    font-size: 24px;
+    font-weight: bold;
+    margin: 10px 0 0;
+}
+
+#field p {
+    color: #B78A8C;
+    font-size: 14px;
+    margin: 5px 50px 0;
+}
+
+.field-h2-2 {
+    display: none;
+}
+
+@media(max-width: 816px) {
+    .field-h2-1 {
+        display: none;
+    }
+
+    .field-h2-2 {
+        display: block;
+    }
+
+    #field h2 {
+        font-size: 20px;
+        margin: 10px 20px;
+    }
+    
+    #field p {
+        color: #B78A8C;
+        font-size: 10px;
+        margin: 0px 20px 0;
+    }
+}
+
+@media(max-width: 480px) {
+    video {
+        width: 80vw;
+        height: auto;
+    }
+    #field h2 {
+        font-size: 20px;
+    }
+}
+
+#works {
+    text-align: center;
+    padding: 100px 0;
+    background-color: #FFFDFD;
+    opacity: 1;
+    background-image:  linear-gradient(135deg, #ffffff 25%, transparent 25%), linear-gradient(225deg, #ffffff 25%, transparent 25%), linear-gradient(45deg, #ffffff 25%, transparent 25%), linear-gradient(315deg, #ffffff 25%, #FFFDFD 25%);
+    background-position:  100px 0, 100px 0, 0 0, 0 0;
+    background-size: 100px 100px;
+    background-repeat: repeat;
+}
+
+#works img{
+    width: 100%;
+    height: auto;
+}
+
+#works h2 {
+    font-size: 20px;
+    color: #B78A8C;
+}
+
+#works p {
+    font-size: 16px;
+    color: #B78A8C;
+    padding: 0 30px 30px;
+}
+
+#works h1 {
+    padding: 0;
+}
+
+#works a {
+    width: 400px;
+    height: auto;
+    margin: 0 20px;
+    text-align: center;
+    transition-duration : 1s;
+}
+
+#works a:hover{
+    background-color:  #F7F2EF;
+    border-radius: 10px;
+    transition-duration : 1s;
+
+}
+
+@media(max-width: 1066px) {
+    #works h2 {
+        font-size: 16px;
+        color: #B78A8C;
+    }
+    #works p {
+        font-size: 12px;
+        color: #B78A8C;
+        padding: 0 30px 30px;
+    }
+}
+
+@media(max-width: 768px) {
+
+    h1 {
+        font-size: 30px;
+        padding-bottom: 20px;
+    }
+
+    #works a:hover{
+        background-color: #FFFDFD;
+        border-radius: 10px;
+        transition-duration : 1s;
+    }
+}
+
+.slider {
+    margin: 30px auto;
+    width: 80%;
+}
+
+/*slick setting*/
+.slick-prev:before,
+.slick-next:before {
+    color: #A7555D;
+}
+
+#skill {
+    text-align: center;
+    padding: 100px 0;
+    background-color: #F7F2EF;
+    opacity: 1;
+    background-image: linear-gradient(to right, #f8f4f2, #f8f4f2 80px, #F7F2EF 80px, #F7F2EF );
+    background-size: 160px 100%;
+}
+
+.skill {
+    background-color: #FFFDFD;
+    box-shadow:0px 0px 10px 0px #F7F2EF inset;
+    height: 115px;
+    width: 320px;
+    /* 子要素を水平方向の中央に配置する */
+    display: flex;
+    justify-content: space-between;
+    margin: 10px;
+}
+
+.skill-img {
+    width: 115px;
+    height: 115px;
+    display: flex;
+    justify-content: center;
+    align-items: center;  
+}
+
+.skill img {
+    height: 55px;
+    width: auto;
+}
+
+.skill-textBox {
+    height: 115px;
+    padding-right: 15px;
+    width: auto;
+    display:table;
+}
+
+.skill-text {
+    font-family: sans-serif;
+    text-align: left;
+    height: 115px;
+    width: auto;
+    display:table-cell;
+    vertical-align:middle;
+}
+
+.skill-h2 {
+    font-size: 20px;
+    font-family: serif;
+}
+
+.skill-h3 {
+    font-size: 12px;
+}
+
+#skill p {
+    font-size: 10px;
+    color: #B78A8C;
+}
+
+.skill-all {
+    display: flex; /* flexbox */
+    flex-wrap: wrap; /* 折返し指定 */
+    justify-content: center;
+}
+
+#contact {
+    text-align: center;
+    padding: 100px 0;
+    background-color: #FFFDFD;
+    opacity: 1;
+    background-image:  linear-gradient(135deg, #ffffff 25%, transparent 25%), linear-gradient(225deg, #ffffff 25%, transparent 25%), linear-gradient(45deg, #ffffff 25%, transparent 25%), linear-gradient(315deg, #ffffff 25%, #FFFDFD 25%);
+    background-position:  100px 0, 100px 0, 0 0, 0 0;
+    background-size: 100px 100px;
+    background-repeat: repeat;
+}
+
+.form input{
+    margin-top: 10px;
+    border:0;
+    padding:10px;
+    color:#482309;
+    border:1px solid  #B78A8C;
+    margin:0 0 20px;
+    width: 300px;
+    box-shadow: inner 0 0 4px #fff;
+    border-radius: 3px;
+}
+
+.form textarea{
+    margin-top: 10px;
+    border:0;
+    padding:10px;
+    font-family: sans-serif;
+    color:#482309;
+    border:1px solid  #B78A8C;
+    margin:0 0 20px;
+    width:300px;
+    border-radius: 3px;
+}
+
+.form button{
+    background:#B78A8C;
+    border:1px solid  #B78A8C;
+    color: #F7F2EF;
+    font-size: 12px;
+    padding-right: 40px;
+    padding-left: 40px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    text-decoration: none;
+    border-radius: 8px;
+    margin-bottom: 30px;
+    transition-duration : 1s;
+    font-family: serif;
+}
+
+.form button:hover {
+    background:#A7555D;
+    border:1px solid  #A7555D;
+    transition-duration : 1s;
+}
+
+footer {
+    background-color: #F4D9CE;
+    text-align: center;
+    height: 70px;
+    line-height: 70px;
+    color: #B78A8C;
+    font-family: serif;
+    width: 100vw;
+}
