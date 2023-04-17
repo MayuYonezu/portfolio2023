@@ -391,6 +391,7 @@ table {
 video {
     width: 60vw;
     height: auto;
+    box-shadow:0px 0px 0px 0px #F4D9CE;
 }
 
 #field h2 {
