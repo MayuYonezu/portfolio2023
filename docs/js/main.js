@@ -1,7 +1,7 @@
 jQuery(function($) {
     $(document).ready(function(){
         $('.slider').slick({
-            dots:false,
+            dots:true,
             slidesToShow:3,
             infinite: true, 
             responsive:[
