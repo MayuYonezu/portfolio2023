@@ -7,7 +7,7 @@
 }
 
 body {
-    background-color: #F7F2EF;
+    background-color: #FFFDFD;
 }
 
 .flex {display: flex;}
@@ -652,7 +652,8 @@ video {
 }
 
 footer {
-    background-color: #F4D9CE;
+    background-color: #FFFDFD;
+    box-shadow: 0px 1px 5px 0px #F4D9CE;
     text-align: center;
     height: 70px;
     line-height: 70px;
